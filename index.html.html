@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Worth on Trial™ — Messy Love Court Workbook</title>
+<meta name="description" content="The Clarity Upgrade Workbook — A guided decision system by Coach Neik™">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8A96A;
+    --gold-soft: #D4B87A;
+    --bg: #0B0B0B;
+    --panel: #F8F8F8;
+    --text: #2A2A2A;
+    --muted: #888;
+    --line: #ddd;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lineGrow {
+    from { width: 0; }
+    to { width: 200px; }
+  }
+  @keyframes lineGrowSmall {
+    from { width: 0; }
+    to { width: 160px; }
+  }
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.8s ease both; }
+  .fd1 { animation-delay: 0.1s; }
+  .fd2 { animation-delay: 0.3s; }
+  .fd3 { animation-delay: 0.4s; }
+  .fd4 { animation-delay: 0.6s; }
+  .fd5 { animation-delay: 0.7s; }
+  .fd6 { animation-delay: 0.8s; }
+  .fd7 { animation-delay: 0.9s; }
+  .fd8 { animation-delay: 1.0s; }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    text-align: center;
+  }
+  .cover-border-outer {
+    position: absolute; inset: 16px;
+    border: 1.5px solid rgba(200,169,106,0.2);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+  .cover-border-inner {
+    position: absolute; inset: 28px;
+    border: 0.5px solid rgba(200,169,106,0.13);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+  .cover-brand {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 6px;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .gold-line {
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+  .gold-line-lg { width: 200px; animation: lineGrow 1s ease 0.3s both; margin-bottom: 32px; }
+  .gold-line-sm { width: 160px; animation: lineGrowSmall 0.8s ease 0.6s both; margin: 28px auto; }
+
+  .cover h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: white;
+    font-size: clamp(36px, 8vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .cover h1 .tm {
+    color: var(--gold);
+    font-size: 0.45em;
+    vertical-align: super;
+  }
+  .cover-subtitle {
+    color: var(--panel);
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  .cover-desc {
+    color: #666;
+    font-size: 12px;
+    max-width: 320px;
+    line-height: 1.7;
+    margin: 24px auto 40px;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 24px;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0.6;
+  }
+
+  /* ── PROGRESS BOX (COVER) ── */
+  .progress-box {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin-bottom: 24px;
+    min-width: 220px;
+  }
+  .progress-box-label { color: #888; font-size: 11px; margin-bottom: 6px; }
+  .progress-row { display: flex; align-items: center; gap: 12px; }
+  .progress-track { flex: 1; height: 4px; background: #333; border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.5s ease; }
+  .progress-pct { color: var(--gold); font-size: 13px; font-weight: 600; }
+
+  /* ── CTA BUTTON ── */
+  .btn-begin {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    padding: 14px 48px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-begin:hover { background: var(--gold); color: var(--bg); }
+
+  /* ── WORKBOOK PAGE ── */
+  .workbook-page { padding: 16px; min-height: 100vh; }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 640px;
+    margin: 0 auto 12px;
+    padding: 0 4px;
+  }
+  .nav-back {
+    background: none; border: none; color: var(--gold); font-size: 11px;
+    cursor: pointer; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;
+    padding: 4px 0; opacity: 0.7;
+  }
+  .nav-back:hover { opacity: 1; }
+  .nav-info { display: flex; align-items: center; gap: 8px; }
+  .nav-save { color: var(--gold); font-size: 10px; opacity: 0.8; }
+  .nav-count { color: #555; font-size: 10px; }
+
+  /* ── DOTS ── */
+  .dots {
+    display: flex; justify-content: center; gap: 6px; margin-bottom: 16px;
+  }
+  .dot {
+    height: 8px; border-radius: 4px; border: none; cursor: pointer;
+    transition: all 0.3s ease; min-width: 8px;
+  }
+
+  /* ── PANEL ── */
+  .panel {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--panel);
+    border-radius: 10px;
+    padding: clamp(24px, 5vw, 40px);
+    box-shadow: 4px 4px 24px rgba(0,0,0,0.5);
+    position: relative;
+    animation: panelIn 0.4s ease;
+  }
+  .panel.animating { opacity: 0; transition: opacity 0.25s ease; }
+  .panel-icon {
+    position: absolute; top: 16px; right: 20px; opacity: 0.35;
+  }
+
+  .panel h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .panel-subtext {
+    text-align: center; color: var(--muted); font-size: 12px;
+    font-style: italic; margin-bottom: 32px; line-height: 1.5;
+  }
+
+  /* ── QUESTION ── */
+  .question-block { margin-bottom: 24px; }
+  .question-block:last-of-type { margin-bottom: 0; }
+  .question-label {
+    display: block; font-size: 12px; font-weight: 500;
+    color: var(--text); margin-bottom: 8px; line-height: 1.5;
+  }
+  .question-input {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    background: white;
+    resize: vertical;
+    transition: all 0.2s ease;
+  }
+  .question-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(200,169,106,0.13);
+  }
+  .question-input.filled {
+    border-color: rgba(200,169,106,0.4);
+    background: #FFFDF8;
+  }
+  .question-input::placeholder { color: #bbb; }
+
+  /* ── COURT ORDER ── */
+  .court-divider {
+    height: 1.5px;
+    margin: 32px auto 20px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    max-width: 70%;
+  }
+  .court-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px; color: var(--gold); font-weight: 700;
+    letter-spacing: 1px; margin-bottom: 10px; text-align: center;
+  }
+  .court-text {
+    font-size: 13px; color: var(--text); font-style: italic;
+    line-height: 1.6; text-align: center; max-width: 400px; margin: 0 auto;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 640px; margin: 20px auto 0; padding: 0 4px;
+  }
+  .btn-prev {
+    background: none; border: 1px solid #444; color: #888;
+    padding: 10px 24px; border-radius: 4px; cursor: pointer;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    letter-spacing: 1px; transition: all 0.2s ease;
+  }
+  .btn-prev:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-reset {
+    background: none; border: none; color: #555;
+    font-size: 10px; cursor: pointer; letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .btn-reset:hover { color: var(--gold); }
+  .btn-next {
+    background: var(--gold); border: none; color: var(--bg);
+    padding: 10px 24px; border-radius: 4px; cursor: pointer;
+    font-family: 'Montserrat', sans-serif; font-size: 11px;
+    font-weight: 600; letter-spacing: 1px; transition: all 0.2s ease;
+  }
+  .btn-next:hover { background: var(--gold-soft); }
+
+  /* ── BOTTOM PROGRESS ── */
+  .bottom-progress {
+    max-width: 640px; margin: 20px auto 12px;
+  }
+  .bottom-progress-row {
+    display: flex; justify-content: space-between; margin-bottom: 4px;
+  }
+  .bottom-progress-label { color: #555; font-size: 10px; }
+  .bottom-progress-pct { color: var(--gold); font-size: 10px; font-weight: 600; }
+  .bottom-progress-track { height: 3px; background: #222; border-radius: 2px; overflow: hidden; }
+  .bottom-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+// ═══════════════════════════════════════════
+//  MESSY LOVE COURT — Self-Worth on Trial™
+//  Interactive Workbook — Coach Neik™
+// ═══════════════════════════════════════════
+
+const PAGES = [
+  {
+    id: "pattern",
+    title: "Pattern Identification",
+    subtext: "Be honest. This is where your pattern shows up.",
+    questions: [
+      { id: "q1", label: "What situation are you thinking about?", rows: 4 },
+      { id: "q2", label: "What did you feel early on?", rows: 3 },
+      { id: "q3", label: "What did you ignore?", rows: 3 }
+    ],
+    courtOrder: "I no longer confuse potential with reality."
+  },
+  {
+    id: "trigger",
+    title: "Trigger Mapping",
+    subtext: "Name the thing that pulls you back in every time.",
+    questions: [
+      { id: "q1", label: "What triggered your last emotional reaction?", rows: 3 },
+      { id: "q2", label: "What were you really responding to — the moment or the memory?", rows: 3 },
+      { id: "q3", label: "What would a clear-headed version of you have done?", rows: 3 }
+    ],
+    courtOrder: "I respond to what is real, not what I wish was real."
+  },
+  {
+    id: "evidence",
+    title: "The Evidence Review",
+    subtext: "Stop defending. Start documenting.",
+    questions: [
+      { id: "q1", label: "List 3 things this person SHOWED you (not told you).", rows: 4 },
+      { id: "q2", label: "What excuses did you make for their behavior?", rows: 3 },
+      { id: "q3", label: "If your best friend told you this story, what would you say?", rows: 3 }
+    ],
+    courtOrder: "I trust behavior over promises."
+  },
+  {
+    id: "emotional",
+    title: "The Emotional Inventory",
+    subtext: "What are you actually carrying right now?",
+    questions: [
+      { id: "q1", label: "What emotions come up when you think about this situation?", rows: 3 },
+      { id: "q2", label: "Which of those emotions are yours — and which were placed on you?", rows: 3 },
+      { id: "q3", label: "What would you feel if you let go of the ones that aren't yours?", rows: 3 }
+    ],
+    courtOrder: "I release what was never mine to carry."
+  },
+  {
+    id: "standards",
+    title: "The Standards Audit",
+    subtext: "You teach people how to treat you. What's the lesson been?",
+    questions: [
+      { id: "q1", label: "What standard did you lower to stay in this situation?", rows: 3 },
+      { id: "q2", label: "What did you accept that you said you never would?", rows: 3 },
+      { id: "q3", label: "Write one non-negotiable standard you are reinstating TODAY.", rows: 3 }
+    ],
+    courtOrder: "My standards are not suggestions. They are requirements."
+  },
+  {
+    id: "peace",
+    title: "The Peace Plan",
+    subtext: "Peace isn't passive. It's a decision you protect.",
+    questions: [
+      { id: "q1", label: "What does peace look like for you — specifically?", rows: 3 },
+      { id: "q2", label: "What has to stop in order for you to get there?", rows: 3 },
+      { id: "q3", label: "What is ONE action you can take this week toward that peace?", rows: 3 }
+    ],
+    courtOrder: "I choose peace over proving a point."
+  },
+  {
+    id: "verdict",
+    title: "The Final Verdict",
+    subtext: "You've reviewed the evidence. Now make your ruling.",
+    questions: [
+      { id: "q1", label: "Based on everything you've written — what is your decision?", rows: 4 },
+      { id: "q2", label: "What are you officially done tolerating?", rows: 3 },
+      { id: "q3", label: "Write your personal court order — what you now require of yourself.", rows: 4 }
+    ],
+    courtOrder: "I am no longer on trial. I am the judge."
+  },
+  {
+    id: "clarity",
+    title: "Clarity to Cash",
+    subtext: "You got clear. Now let's get strategic.",
+    questions: [
+      { id: "q1", label: "What part of your journey could help someone else?", rows: 3 },
+      { id: "q2", label: "Who is going through what you just came out of?", rows: 3 },
+      { id: "q3", label: "If you could teach ONE lesson from this experience, what would it be?", rows: 3 }
+    ],
+    courtOrder: "My clarity is not just healing. It is currency."
+  }
+];
+
+const STORAGE_KEY = "mlc_workbook_data";
+const SCALE_SVG = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A96A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><line x1="4" y1="7" x2="20" y2="7"/><polyline points="4,7 3,13 7,13 4,7"/><polyline points="20,7 17,13 21,13 20,7"/><line x1="9" y1="21" x2="15" y2="21"/></svg>`;
+
+// ── STATE ──
+let state = {
+  currentPage: -1,
+  answers: {},
+  saveMsg: ""
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      state.answers = parsed.answers || {};
+      state.currentPage = parsed.lastPage !== undefined ? parsed.lastPage : -1;
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      answers: state.answers,
+      lastPage: state.currentPage,
+      lastSaved: new Date().toISOString()
+    }));
+    showSaveMsg("Saved ✓");
+  } catch(e) {
+    showSaveMsg("Save failed");
+  }
+}
+
+let saveMsgTimer = null;
+function showSaveMsg(msg) {
+  state.saveMsg = msg;
+  const el = document.getElementById("save-status");
+  if (el) el.textContent = msg;
+  if (saveMsgTimer) clearTimeout(saveMsgTimer);
+  saveMsgTimer = setTimeout(() => {
+    state.saveMsg = "";
+    const el2 = document.getElementById("save-status");
+    if (el2) el2.textContent = "";
+  }, 2000);
+}
+
+function getProgress() {
+  let filled = 0, total = 0;
+  PAGES.forEach(p => {
+    p.questions.forEach(q => {
+      total++;
+      if ((state.answers[p.id + "_" + q.id] || "").trim()) filled++;
+    });
+  });
+  return total > 0 ? Math.round((filled / total) * 100) : 0;
+}
+
+function getPageFilled(page) {
+  let filled = 0;
+  page.questions.forEach(q => {
+    if ((state.answers[page.id + "_" + q.id] || "").trim()) filled++;
+  });
+  return filled;
+}
+
+function navigateTo(page) {
+  const panel = document.querySelector('.panel');
+  if (panel) panel.classList.add('animating');
+
+  setTimeout(() => {
+    state.currentPage = page;
+    saveState();
+    render();
+    window.scrollTo(0, 0);
+  }, 250);
+}
+
+function handleReset() {
+  if (confirm("Clear all your answers? This cannot be undone.")) {
+    state.answers = {};
+    state.currentPage = -1;
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    render();
+  }
+}
+
+// ── RENDER ──
+function render() {
+  const app = document.getElementById("app");
+  if (state.currentPage === -1) {
+    app.innerHTML = renderCover();
+  } else {
+    app.innerHTML = renderWorkbookPage(PAGES[state.currentPage]);
+  }
+  attachEvents();
+}
+
+function renderCover() {
+  const pct = getProgress();
+  const progressHTML = pct > 0 ? `
+    <div class="progress-box fade-up fd7">
+      <div class="progress-box-label">Your Progress</div>
+      <div class="progress-row">
+        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <span class="progress-pct">${pct}%</span>
+      </div>
+    </div>` : "";
+
+  return `
+    <div class="cover">
+      <div class="cover-border-outer"></div>
+      <div class="cover-border-inner"></div>
+      <div class="cover-brand fade-up fd1">M E S S Y &nbsp; L O V E &nbsp; C O U R T</div>
+      <div class="gold-line gold-line-lg"></div>
+      <h1 class="fade-up fd3">Self-Worth<br>on Trial<span class="tm">™</span></h1>
+      <div class="gold-line gold-line-sm"></div>
+      <p class="cover-subtitle fade-up fd5">The Clarity Upgrade Workbook</p>
+      <p class="cover-desc fade-up fd6">A guided decision system for people who are done<br>staying confused about what they already know.</p>
+      ${progressHTML}
+      <button class="btn-begin fade-up fd8" onclick="navigateTo(0)">${pct > 0 ? "CONTINUE" : "BEGIN"}</button>
+      <div class="cover-footer">MESSY LOVE COURT &nbsp;•&nbsp; COACH NEIK™</div>
+    </div>`;
+}
+
+function renderWorkbookPage(page) {
+  const idx = state.currentPage;
+  const total = PAGES.length;
+  const pct = getProgress();
+
+  // Dots
+  let dotsHTML = "";
+  PAGES.forEach((p, i) => {
+    const filled = getPageFilled(p);
+    const isComplete = filled === p.questions.length;
+    const isActive = i === idx;
+    const hasContent = filled > 0;
+    const w = isComplete ? 20 : 8;
+    const bg = isActive ? "var(--gold)" : hasContent ? "rgba(200,169,106,0.4)" : "#333";
+    dotsHTML += `<button class="dot" style="width:${w}px;background:${bg}" onclick="navigateTo(${i})"></button>`;
+  });
+
+  // Questions
+  let questionsHTML = "";
+  page.questions.forEach((q, qi) => {
+    const key = page.id + "_" + q.id;
+    const val = state.answers[key] || "";
+    const filledClass = val.trim() ? " filled" : "";
+    const isLast = qi === page.questions.length - 1;
+    questionsHTML += `
+      <div class="question-block" ${isLast ? 'style="margin-bottom:0"' : ''}>
+        <label class="question-label">${q.label}</label>
+        <textarea
+          class="question-input${filledClass}"
+          data-key="${key}"
+          rows="${q.rows}"
+          placeholder="Type your answer here..."
+        >${val}</textarea>
+      </div>`;
+  });
+
+  // Nav buttons
+  const nextBtn = idx < total - 1
+    ? `<button class="btn-next" onclick="navigateTo(${idx + 1})">NEXT →</button>`
+    : `<button class="btn-next" onclick="navigateTo(-1)">FINISH ✓</button>`;
+
+  const backTarget = idx > 0 ? idx - 1 : -1;
+
+  return `
+    <div class="workbook-page">
+      <div class="nav-bar">
+        <button class="nav-back" onclick="navigateTo(-1)">← COVER</button>
+        <div class="nav-info">
+          <span id="save-status" class="nav-save">${state.saveMsg}</span>
+          <span class="nav-count">${idx + 1} / ${total}</span>
+        </div>
+      </div>
+
+      <div class="dots">${dotsHTML}</div>
+
+      <div class="panel">
+        <div class="panel-icon">${SCALE_SVG}</div>
+        <h2>${page.title}</h2>
+        <p class="panel-subtext">${page.subtext}</p>
+        ${questionsHTML}
+        <div class="court-divider"></div>
+        <div class="court-label">Court Order</div>
+        <p class="court-text">"${page.courtOrder}"</p>
+      </div>
+
+      <div class="bottom-nav">
+        <button class="btn-prev" onclick="navigateTo(${backTarget})">← BACK</button>
+        <button class="btn-reset" onclick="handleReset()">RESET</button>
+        ${nextBtn}
+      </div>
+
+      <div class="bottom-progress">
+        <div class="bottom-progress-row">
+          <span class="bottom-progress-label">Overall Progress</span>
+          <span class="bottom-progress-pct">${pct}%</span>
+        </div>
+        <div class="bottom-progress-track">
+          <div class="bottom-progress-fill" style="width:${pct}%"></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── EVENT BINDING ──
+let debounceTimer = null;
+function attachEvents() {
+  document.querySelectorAll(".question-input").forEach(textarea => {
+    textarea.addEventListener("input", function() {
+      const key = this.dataset.key;
+      state.answers[key] = this.value;
+
+      if (this.value.trim()) {
+        this.classList.add("filled");
+      } else {
+        this.classList.remove("filled");
+      }
+
+      // Debounced save
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        saveState();
+        // Update progress without full re-render
+        const pct = getProgress();
+        const pctEls = document.querySelectorAll(".bottom-progress-pct");
+        const fillEls = document.querySelectorAll(".bottom-progress-fill");
+        pctEls.forEach(el => el.textContent = pct + "%");
+        fillEls.forEach(el => el.style.width = pct + "%");
+
+        // Update dots
+        PAGES.forEach((p, i) => {
+          const filled = getPageFilled(p);
+          const isComplete = filled === p.questions.length;
+          const dot = document.querySelectorAll(".dot")[i];
+          if (dot) {
+            dot.style.width = isComplete ? "20px" : "8px";
+            if (i === state.currentPage) {
+              dot.style.background = "var(--gold)";
+            } else if (filled > 0) {
+              dot.style.background = "rgba(200,169,106,0.4)";
+            } else {
+              dot.style.background = "#333";
+            }
+          }
+        });
+      }, 400);
+    });
+  });
+}
+
+// ── INIT ──
+loadState();
+render();
+</script>
+</body>
+</html>
