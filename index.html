@@ -6,7 +6,7 @@
 <title>Self-Worth on Trial™ — Messy Love Court Workbook</title>
 <meta name="description" content="The Clarity Upgrade Workbook — A guided decision system by Coach Neik™">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --gold: #C8A96A;
@@ -16,6 +16,7 @@
     --text: #2A2A2A;
     --muted: #888;
     --line: #ddd;
+    --warm: #FFFDF8;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,7 +29,6 @@
     overflow-x: hidden;
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -55,7 +55,6 @@
   .fd7 { animation-delay: 0.9s; }
   .fd8 { animation-delay: 1.0s; }
 
-  /* ── COVER ── */
   .cover {
     min-height: 100vh;
     display: flex;
@@ -80,7 +79,7 @@
   }
   .cover-brand {
     color: var(--gold);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 6px;
     font-weight: 500;
     margin-bottom: 24px;
@@ -127,7 +126,6 @@
     opacity: 0.6;
   }
 
-  /* ── PROGRESS BOX (COVER) ── */
   .progress-box {
     background: #1a1a1a;
     border-radius: 8px;
@@ -141,7 +139,6 @@
   .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.5s ease; }
   .progress-pct { color: var(--gold); font-size: 13px; font-weight: 600; }
 
-  /* ── CTA BUTTON ── */
   .btn-begin {
     background: transparent;
     border: 1.5px solid var(--gold);
@@ -157,16 +154,11 @@
   }
   .btn-begin:hover { background: var(--gold); color: var(--bg); }
 
-  /* ── WORKBOOK PAGE ── */
   .workbook-page { padding: 16px; min-height: 100vh; }
 
   .nav-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 640px;
-    margin: 0 auto 12px;
-    padding: 0 4px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 640px; margin: 0 auto 12px; padding: 0 4px;
   }
   .nav-back {
     background: none; border: none; color: var(--gold); font-size: 11px;
@@ -178,19 +170,14 @@
   .nav-save { color: var(--gold); font-size: 10px; opacity: 0.8; }
   .nav-count { color: #555; font-size: 10px; }
 
-  /* ── DOTS ── */
-  .dots {
-    display: flex; justify-content: center; gap: 6px; margin-bottom: 16px;
-  }
+  .dots { display: flex; justify-content: center; gap: 5px; margin-bottom: 16px; flex-wrap: wrap; }
   .dot {
     height: 8px; border-radius: 4px; border: none; cursor: pointer;
     transition: all 0.3s ease; min-width: 8px;
   }
 
-  /* ── PANEL ── */
   .panel {
-    max-width: 640px;
-    margin: 0 auto;
+    max-width: 640px; margin: 0 auto;
     background: var(--panel);
     border-radius: 10px;
     padding: clamp(24px, 5vw, 40px);
@@ -199,58 +186,153 @@
     animation: panelIn 0.4s ease;
   }
   .panel.animating { opacity: 0; transition: opacity 0.25s ease; }
-  .panel-icon {
-    position: absolute; top: 16px; right: 20px; opacity: 0.35;
-  }
+  .panel-icon { position: absolute; top: 16px; right: 20px; opacity: 0.35; }
 
   .panel h2 {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(22px, 5vw, 28px);
-    font-weight: 700;
-    color: var(--text);
-    text-align: center;
-    margin-bottom: 6px;
+    font-weight: 700; color: var(--text); text-align: center; margin-bottom: 6px;
   }
   .panel-subtext {
     text-align: center; color: var(--muted); font-size: 12px;
-    font-style: italic; margin-bottom: 32px; line-height: 1.5;
+    font-style: italic; margin-bottom: 28px; line-height: 1.5;
   }
 
-  /* ── QUESTION ── */
-  .question-block { margin-bottom: 24px; }
-  .question-block:last-of-type { margin-bottom: 0; }
+  .question-block { margin-bottom: 22px; }
   .question-label {
-    display: block; font-size: 12px; font-weight: 500;
+    display: block; font-size: 12px; font-weight: 600;
     color: var(--text); margin-bottom: 8px; line-height: 1.5;
   }
   .question-input {
-    width: 100%;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 12px 14px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text);
-    background: white;
-    resize: vertical;
-    transition: all 0.2s ease;
+    width: 100%; border: 1px solid var(--line); border-radius: 6px;
+    padding: 12px 14px; font-family: 'Montserrat', sans-serif;
+    font-size: 13px; line-height: 1.7; color: var(--text);
+    background: white; resize: vertical; transition: all 0.2s ease;
   }
   .question-input:focus {
-    outline: none;
-    border-color: var(--gold);
+    outline: none; border-color: var(--gold);
     box-shadow: 0 0 0 2px rgba(200,169,106,0.13);
   }
-  .question-input.filled {
-    border-color: rgba(200,169,106,0.4);
-    background: #FFFDF8;
-  }
+  .question-input.filled { border-color: rgba(200,169,106,0.4); background: var(--warm); }
   .question-input::placeholder { color: #bbb; }
 
-  /* ── COURT ORDER ── */
+  .choose-block { margin-bottom: 22px; }
+  .choose-label {
+    display: block; font-size: 12px; font-weight: 600;
+    color: var(--text); margin-bottom: 10px; line-height: 1.5;
+  }
+  .choose-options { display: flex; flex-direction: column; gap: 8px; }
+  .choose-option {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px; border: 1px solid var(--line); border-radius: 6px;
+    cursor: pointer; transition: all 0.2s ease; background: white;
+    font-size: 13px; color: var(--text);
+  }
+  .choose-option:hover { border-color: var(--gold); background: #FFFEF9; }
+  .choose-option.selected {
+    border-color: var(--gold); background: var(--warm);
+    box-shadow: 0 0 0 2px rgba(200,169,106,0.13);
+  }
+  .choose-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 2px solid var(--line); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .choose-option.selected .choose-dot { border-color: var(--gold); }
+  .choose-dot-inner {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: transparent; transition: all 0.2s ease;
+  }
+  .choose-option.selected .choose-dot-inner { background: var(--gold); }
+
+  .reality-block {
+    margin: 24px 0;
+    padding: 16px;
+    background: #F0EDE6;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+  }
+  .reality-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 13px; font-weight: 700; color: var(--gold);
+    margin-bottom: 4px; letter-spacing: 0.5px;
+  }
+  .reality-sub {
+    font-size: 11px; color: #777; font-style: italic; margin-bottom: 10px;
+  }
+  .reality-input {
+    width: 100%; border: 1px solid #D5CEBC; border-radius: 6px;
+    padding: 12px 14px; font-family: 'Montserrat', sans-serif;
+    font-size: 13px; line-height: 1.7; color: var(--text);
+    background: white; resize: vertical; transition: all 0.2s ease;
+  }
+  .reality-input:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(200,169,106,0.13);
+  }
+  .reality-input.filled { background: var(--warm); border-color: rgba(200,169,106,0.4); }
+
+  .decision-block {
+    margin-top: 26px; padding: 18px;
+    background: #0B0B0B; border-radius: 8px;
+  }
+  .decision-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px; font-weight: 700; color: var(--gold);
+    margin-bottom: 4px; letter-spacing: 0.5px;
+  }
+  .decision-sub {
+    font-size: 10px; color: #666; margin-bottom: 10px;
+  }
+  .decision-input {
+    width: 100%; border: 1px solid #333; border-radius: 6px;
+    padding: 12px 14px; font-family: 'Montserrat', sans-serif;
+    font-size: 13px; line-height: 1.7; color: white;
+    background: #1a1a1a; resize: vertical; transition: all 0.2s ease;
+  }
+  .decision-input:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(200,169,106,0.2);
+  }
+  .decision-input.filled { border-color: var(--gold); background: #1F1B14; }
+  .decision-input::placeholder { color: #555; }
+
+  .fib-block { margin-bottom: 18px; }
+  .fib-label {
+    font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.6;
+  }
+  .fib-input {
+    display: inline-block; width: 100%; margin-top: 6px;
+    border: none; border-bottom: 2px solid var(--line);
+    padding: 6px 2px; font-family: 'Montserrat', sans-serif;
+    font-size: 14px; color: var(--text); background: transparent;
+    transition: all 0.2s ease;
+  }
+  .fib-input:focus { outline: none; border-bottom-color: var(--gold); }
+  .fib-input.filled { border-bottom-color: var(--gold); }
+
+  .sig-block {
+    margin-top: 30px; padding-top: 20px;
+    border-top: 1.5px solid var(--line); text-align: center;
+  }
+  .sig-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px; color: var(--gold); font-style: italic; margin-bottom: 16px;
+  }
+  .sig-input {
+    width: 70%; max-width: 300px; border: none;
+    border-bottom: 2px solid var(--gold);
+    padding: 8px 4px; font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px; color: var(--text); background: transparent;
+    text-align: center; transition: all 0.2s ease;
+  }
+  .sig-input:focus { outline: none; }
+  .sig-input::placeholder { color: #ccc; font-size: 14px; }
+  .sig-date { margin-top: 12px; font-size: 11px; color: var(--muted); }
+
   .court-divider {
-    height: 1.5px;
-    margin: 32px auto 20px;
+    height: 1.5px; margin: 28px auto 18px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     max-width: 70%;
   }
@@ -261,10 +343,9 @@
   }
   .court-text {
     font-size: 13px; color: var(--text); font-style: italic;
-    line-height: 1.6; text-align: center; max-width: 400px; margin: 0 auto;
+    line-height: 1.6; text-align: center; max-width: 420px; margin: 0 auto;
   }
 
-  /* ── BOTTOM NAV ── */
   .bottom-nav {
     display: flex; justify-content: space-between; align-items: center;
     max-width: 640px; margin: 20px auto 0; padding: 0 4px;
@@ -290,382 +371,88 @@
   }
   .btn-next:hover { background: var(--gold-soft); }
 
-  /* ── BOTTOM PROGRESS ── */
-  .bottom-progress {
-    max-width: 640px; margin: 20px auto 12px;
-  }
-  .bottom-progress-row {
-    display: flex; justify-content: space-between; margin-bottom: 4px;
-  }
+  .bottom-progress { max-width: 640px; margin: 20px auto 12px; }
+  .bottom-progress-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
   .bottom-progress-label { color: #555; font-size: 10px; }
   .bottom-progress-pct { color: var(--gold); font-size: 10px; font-weight: 600; }
   .bottom-progress-track { height: 3px; background: #222; border-radius: 2px; overflow: hidden; }
   .bottom-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold), var(--gold-soft));
-    border-radius: 2px;
-    transition: width 0.5s ease;
+    height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+    border-radius: 2px; transition: width 0.5s ease;
   }
 </style>
 </head>
 <body>
-
 <div id="app"></div>
-
 <script>
-// ═══════════════════════════════════════════
-//  MESSY LOVE COURT — Self-Worth on Trial™
-//  Interactive Workbook — Coach Neik™
-// ═══════════════════════════════════════════
+const PAGES=[{id:"pattern",title:"Pattern Identification",subtext:"This is where you stop lying to yourself.",questions:[{id:"q1",type:"text",label:"What situation are you replaying in your head right now?",rows:4},{id:"q2",type:"text",label:"What didn\u2019t sit right with you early on \u2014 that you pushed past?",rows:3},{id:"q3",type:"text",label:"What were you trying to convince yourself of?",rows:3}],choose:{id:"ch1",label:"Which one were you operating in?",options:["Fantasy \u2014 hoping it would change","Fixing \u2014 trying to make it work","Fear \u2014 afraid to let go"]},realityCheck:"What is the truth about this situation \u2014 without the emotion?",decision:true,courtOrder:"I no longer confuse potential with reality."},{id:"trigger",title:"Trigger Mapping",subtext:"Name the thing that pulls you back in every single time.",questions:[{id:"q1",type:"text",label:"What triggered your last emotional reaction?",rows:3},{id:"q2",type:"text",label:"Were you responding to what just happened \u2014 or to a memory?",rows:3},{id:"q3",type:"text",label:"What would a version of you with zero emotional attachment have done?",rows:3}],choose:{id:"ch1",label:"What pulled you back in?",options:["A text / call \u2014 they reached out","A memory \u2014 you romanticized the past","Loneliness \u2014 you missed the feeling, not the person","Guilt \u2014 you felt responsible for their pain"]},realityCheck:"If you removed the emotion \u2014 what actually happened?",decision:true,courtOrder:"I respond to what is real, not what I wish was real."},{id:"evidence",title:"The Evidence Review",subtext:"Stop defending them. Start documenting.",questions:[{id:"q1",type:"text",label:"List 3 things this person SHOWED you through their actions \u2014 not their words.",rows:4},{id:"q2",type:"text",label:"What excuses did you create to justify their behavior?",rows:3},{id:"q3",type:"text",label:"If your best friend described this exact situation to you \u2014 what would you tell them?",rows:3}],choose:{id:"ch1",label:"Which pattern did you use to protect them?",options:['Minimizing \u2014 "It wasn\u2019t that bad"','Blaming yourself \u2014 "Maybe I caused it"','Future-tripping \u2014 "They\u2019ll change eventually"','Comparing \u2014 "At least they don\u2019t do ___"']},realityCheck:"Based only on what they DID (not said) \u2014 who are they?",decision:true,courtOrder:"I trust behavior over promises. Every time."},{id:"emotional",title:"The Emotional Inventory",subtext:"What are you carrying that was never yours to hold?",questions:[{id:"q1",type:"text",label:"What emotions flood you when you think about this situation?",rows:3},{id:"q2",type:"text",label:"Which of those emotions are YOURS \u2014 and which were placed on you?",rows:3},{id:"q3",type:"text",label:"What would you feel if you dropped every emotion that isn\u2019t yours?",rows:3}],choose:{id:"ch1",label:"What are you actually holding onto?",options:["Guilt \u2014 for leaving or wanting to leave","Shame \u2014 for staying as long as you did","Anger \u2014 at them or yourself","Grief \u2014 mourning what it could have been"]},realityCheck:"Name ONE emotion you\u2019ve been carrying that does not belong to you.",decision:true,courtOrder:"I release what was never mine to carry. Immediately."},{id:"standards",title:"The Standards Audit",subtext:"You teach people how to treat you. What lesson have you been giving?",questions:[{id:"q1",type:"text",label:"What standard did you lower to keep this situation alive?",rows:3},{id:"q2",type:"text",label:"What did you swear you\u2019d never accept \u2014 and then accepted anyway?",rows:3},{id:"q3",type:"text",label:"Write one non-negotiable standard you are reinstating RIGHT NOW.",rows:3}],choose:{id:"ch1",label:"Where did you compromise?",options:["Communication \u2014 you stopped requiring honesty","Consistency \u2014 you accepted hot and cold","Respect \u2014 you tolerated disrespect to keep peace","Reciprocity \u2014 you gave more than you received"]},realityCheck:"What standard would you set if you had ZERO fear of being alone?",decision:true,courtOrder:"My standards are not suggestions. They are requirements."},{id:"peace",title:"The Peace Plan",subtext:"Peace is not passive. It is a decision you protect every day.",questions:[{id:"q1",type:"text",label:"What does peace look like for you \u2014 be specific?",rows:3},{id:"q2",type:"text",label:"What has to STOP for you to get there?",rows:3},{id:"q3",type:"text",label:"What is ONE action you will take THIS WEEK to protect your peace?",rows:3}],choose:{id:"ch1",label:"What is currently stealing your peace?",options:["A person \u2014 someone who drains you","A habit \u2014 checking their socials, re-reading texts",'A belief \u2014 "I won\u2019t find better"',"An environment \u2014 people who enable the cycle"]},realityCheck:"What would your life look like 6 months from now if you chose peace today?",decision:true,courtOrder:"I choose peace over proving a point. Every single time."},{id:"yourpattern",title:"Your Pattern",subtext:"You\u2019ve seen it. Now name it. This is the cycle that ends today.",questions:[{id:"q1",type:"text",label:"What does this pattern cost you every time you repeat it?",rows:4},{id:"q2",type:"text",label:"How long have you been running this same cycle?",rows:2},{id:"q3",type:"text",label:"What would your life look like if you BROKE this pattern permanently?",rows:4}],choose:{id:"ch1",label:"Which pattern do you repeat most?",options:["Ignoring red flags \u2014 seeing them but choosing not to act","Trying to fix people \u2014 believing your love can change them","Staying too long \u2014 waiting for something that isn\u2019t coming","Over-explaining their behavior \u2014 making excuses for them"]},realityCheck:"If you never break this pattern \u2014 where do you end up in 5 years?",decision:true,courtOrder:"I see my pattern clearly. And I refuse to repeat it."},{id:"verdict",title:"The Final Verdict",subtext:"You\u2019ve reviewed the evidence. Now make your ruling.",isFinalVerdict:true,questions:[],choose:null,realityCheck:null,decision:false,courtOrder:"I am no longer on trial. I am the judge."},{id:"clarity",title:"Clarity to Cash",subtext:"You got clear. Now let\u2019s get strategic.",questions:[{id:"q1",type:"text",label:"What part of your journey could help someone else right now?",rows:3},{id:"q2",type:"text",label:"Who is going through exactly what you just came out of?",rows:3},{id:"q3",type:"text",label:"If you could teach ONE lesson from this experience \u2014 what would it be?",rows:3}],choose:null,realityCheck:"What did this season of your life teach you that nobody can take away?",decision:true,courtOrder:"My clarity is not just healing. It is currency."}];
 
-const PAGES = [
-  {
-    id: "pattern",
-    title: "Pattern Identification",
-    subtext: "Be honest. This is where your pattern shows up.",
-    questions: [
-      { id: "q1", label: "What situation are you thinking about?", rows: 4 },
-      { id: "q2", label: "What did you feel early on?", rows: 3 },
-      { id: "q3", label: "What did you ignore?", rows: 3 }
-    ],
-    courtOrder: "I no longer confuse potential with reality."
-  },
-  {
-    id: "trigger",
-    title: "Trigger Mapping",
-    subtext: "Name the thing that pulls you back in every time.",
-    questions: [
-      { id: "q1", label: "What triggered your last emotional reaction?", rows: 3 },
-      { id: "q2", label: "What were you really responding to — the moment or the memory?", rows: 3 },
-      { id: "q3", label: "What would a clear-headed version of you have done?", rows: 3 }
-    ],
-    courtOrder: "I respond to what is real, not what I wish was real."
-  },
-  {
-    id: "evidence",
-    title: "The Evidence Review",
-    subtext: "Stop defending. Start documenting.",
-    questions: [
-      { id: "q1", label: "List 3 things this person SHOWED you (not told you).", rows: 4 },
-      { id: "q2", label: "What excuses did you make for their behavior?", rows: 3 },
-      { id: "q3", label: "If your best friend told you this story, what would you say?", rows: 3 }
-    ],
-    courtOrder: "I trust behavior over promises."
-  },
-  {
-    id: "emotional",
-    title: "The Emotional Inventory",
-    subtext: "What are you actually carrying right now?",
-    questions: [
-      { id: "q1", label: "What emotions come up when you think about this situation?", rows: 3 },
-      { id: "q2", label: "Which of those emotions are yours — and which were placed on you?", rows: 3 },
-      { id: "q3", label: "What would you feel if you let go of the ones that aren't yours?", rows: 3 }
-    ],
-    courtOrder: "I release what was never mine to carry."
-  },
-  {
-    id: "standards",
-    title: "The Standards Audit",
-    subtext: "You teach people how to treat you. What's the lesson been?",
-    questions: [
-      { id: "q1", label: "What standard did you lower to stay in this situation?", rows: 3 },
-      { id: "q2", label: "What did you accept that you said you never would?", rows: 3 },
-      { id: "q3", label: "Write one non-negotiable standard you are reinstating TODAY.", rows: 3 }
-    ],
-    courtOrder: "My standards are not suggestions. They are requirements."
-  },
-  {
-    id: "peace",
-    title: "The Peace Plan",
-    subtext: "Peace isn't passive. It's a decision you protect.",
-    questions: [
-      { id: "q1", label: "What does peace look like for you — specifically?", rows: 3 },
-      { id: "q2", label: "What has to stop in order for you to get there?", rows: 3 },
-      { id: "q3", label: "What is ONE action you can take this week toward that peace?", rows: 3 }
-    ],
-    courtOrder: "I choose peace over proving a point."
-  },
-  {
-    id: "verdict",
-    title: "The Final Verdict",
-    subtext: "You've reviewed the evidence. Now make your ruling.",
-    questions: [
-      { id: "q1", label: "Based on everything you've written — what is your decision?", rows: 4 },
-      { id: "q2", label: "What are you officially done tolerating?", rows: 3 },
-      { id: "q3", label: "Write your personal court order — what you now require of yourself.", rows: 4 }
-    ],
-    courtOrder: "I am no longer on trial. I am the judge."
-  },
-  {
-    id: "clarity",
-    title: "Clarity to Cash",
-    subtext: "You got clear. Now let's get strategic.",
-    questions: [
-      { id: "q1", label: "What part of your journey could help someone else?", rows: 3 },
-      { id: "q2", label: "Who is going through what you just came out of?", rows: 3 },
-      { id: "q3", label: "If you could teach ONE lesson from this experience, what would it be?", rows: 3 }
-    ],
-    courtOrder: "My clarity is not just healing. It is currency."
-  }
-];
+const FINAL_FILLS=[{id:"f1",before:"I choose",mid:"over",after:""},{id:"f2",before:"I will no longer tolerate",mid:"",after:""},{id:"f3",before:"I recognize that",mid:"is not love",after:""},{id:"f4",before:"My new standard is",mid:"",after:""},{id:"f5",before:"Moving forward, I will",mid:"",after:""}];
 
-const STORAGE_KEY = "mlc_workbook_data";
-const SCALE_SVG = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A96A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><line x1="4" y1="7" x2="20" y2="7"/><polyline points="4,7 3,13 7,13 4,7"/><polyline points="20,7 17,13 21,13 20,7"/><line x1="9" y1="21" x2="15" y2="21"/></svg>`;
+const STORAGE_KEY="mlc_workbook_v2";
+const SCALE_SVG='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8A96A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><line x1="4" y1="7" x2="20" y2="7"/><polyline points="4,7 3,13 7,13 4,7"/><polyline points="20,7 17,13 21,13 20,7"/><line x1="9" y1="21" x2="15" y2="21"/></svg>';
 
-// ── STATE ──
-let state = {
-  currentPage: -1,
-  answers: {},
-  saveMsg: ""
-};
+let state={currentPage:-1,answers:{},saveMsg:""};
 
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      state.answers = parsed.answers || {};
-      state.currentPage = parsed.lastPage !== undefined ? parsed.lastPage : -1;
-    }
-  } catch(e) {}
-}
+function loadState(){try{const r=localStorage.getItem(STORAGE_KEY);if(r){const p=JSON.parse(r);state.answers=p.answers||{};state.currentPage=p.lastPage!==undefined?p.lastPage:-1;}}catch(e){}}
 
-function saveState() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      answers: state.answers,
-      lastPage: state.currentPage,
-      lastSaved: new Date().toISOString()
-    }));
-    showSaveMsg("Saved ✓");
-  } catch(e) {
-    showSaveMsg("Save failed");
-  }
-}
+function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify({answers:state.answers,lastPage:state.currentPage,lastSaved:new Date().toISOString()}));showSaveMsg("Saved \u2713");}catch(e){showSaveMsg("Save failed");}}
 
-let saveMsgTimer = null;
-function showSaveMsg(msg) {
-  state.saveMsg = msg;
-  const el = document.getElementById("save-status");
-  if (el) el.textContent = msg;
-  if (saveMsgTimer) clearTimeout(saveMsgTimer);
-  saveMsgTimer = setTimeout(() => {
-    state.saveMsg = "";
-    const el2 = document.getElementById("save-status");
-    if (el2) el2.textContent = "";
-  }, 2000);
-}
+let saveMsgTimer=null;
+function showSaveMsg(msg){state.saveMsg=msg;const el=document.getElementById("save-status");if(el)el.textContent=msg;if(saveMsgTimer)clearTimeout(saveMsgTimer);saveMsgTimer=setTimeout(()=>{state.saveMsg="";const el2=document.getElementById("save-status");if(el2)el2.textContent="";},2000);}
 
-function getProgress() {
-  let filled = 0, total = 0;
-  PAGES.forEach(p => {
-    p.questions.forEach(q => {
-      total++;
-      if ((state.answers[p.id + "_" + q.id] || "").trim()) filled++;
-    });
-  });
-  return total > 0 ? Math.round((filled / total) * 100) : 0;
-}
+function countFields(){let filled=0,total=0;PAGES.forEach(p=>{p.questions.forEach(q=>{total++;if((state.answers[p.id+"_"+q.id]||"").trim())filled++;});if(p.choose){total++;if(state.answers[p.id+"_"+p.choose.id]!==undefined)filled++;}if(p.realityCheck){total++;if((state.answers[p.id+"_rc"]||"").trim())filled++;}if(p.decision){total++;if((state.answers[p.id+"_decision"]||"").trim())filled++;}if(p.isFinalVerdict){FINAL_FILLS.forEach(f=>{total++;if((state.answers["verdict_"+f.id]||"").trim())filled++;});total+=1;if((state.answers["verdict_sig"]||"").trim())filled++;}});return{filled,total,pct:total>0?Math.round((filled/total)*100):0};}
 
-function getPageFilled(page) {
-  let filled = 0;
-  page.questions.forEach(q => {
-    if ((state.answers[page.id + "_" + q.id] || "").trim()) filled++;
-  });
-  return filled;
-}
+function getPageFilled(page){let f=0;page.questions.forEach(q=>{if((state.answers[page.id+"_"+q.id]||"").trim())f++;});if(page.choose&&state.answers[page.id+"_"+page.choose.id]!==undefined)f++;if(page.realityCheck&&(state.answers[page.id+"_rc"]||"").trim())f++;if(page.decision&&(state.answers[page.id+"_decision"]||"").trim())f++;if(page.isFinalVerdict){FINAL_FILLS.forEach(ff=>{if((state.answers["verdict_"+ff.id]||"").trim())f++;});if((state.answers["verdict_sig"]||"").trim())f++;}return f;}
 
-function navigateTo(page) {
-  const panel = document.querySelector('.panel');
-  if (panel) panel.classList.add('animating');
+function getPageTotal(page){let t=page.questions.length;if(page.choose)t++;if(page.realityCheck)t++;if(page.decision)t++;if(page.isFinalVerdict){t+=FINAL_FILLS.length+1;}return t;}
 
-  setTimeout(() => {
-    state.currentPage = page;
-    saveState();
-    render();
-    window.scrollTo(0, 0);
-  }, 250);
-}
+function navigateTo(page){const panel=document.querySelector('.panel');if(panel)panel.classList.add('animating');setTimeout(()=>{state.currentPage=page;saveState();render();window.scrollTo(0,0);},250);}
 
-function handleReset() {
-  if (confirm("Clear all your answers? This cannot be undone.")) {
-    state.answers = {};
-    state.currentPage = -1;
-    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
-    render();
-  }
-}
+function handleReset(){if(confirm("Clear all your answers? This cannot be undone.")){state.answers={};state.currentPage=-1;try{localStorage.removeItem(STORAGE_KEY);}catch(e){}render();}}
 
-// ── RENDER ──
-function render() {
-  const app = document.getElementById("app");
-  if (state.currentPage === -1) {
-    app.innerHTML = renderCover();
-  } else {
-    app.innerHTML = renderWorkbookPage(PAGES[state.currentPage]);
-  }
-  attachEvents();
-}
+function selectChoice(pageId,choiceId,value){state.answers[pageId+"_"+choiceId]=value;saveState();document.querySelectorAll('.choose-option').forEach((opt,i)=>{if(i===value){opt.classList.add('selected');}else{opt.classList.remove('selected');}});}
 
-function renderCover() {
-  const pct = getProgress();
-  const progressHTML = pct > 0 ? `
-    <div class="progress-box fade-up fd7">
-      <div class="progress-box-label">Your Progress</div>
-      <div class="progress-row">
-        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-        <span class="progress-pct">${pct}%</span>
-      </div>
-    </div>` : "";
+function render(){const app=document.getElementById("app");if(state.currentPage===-1){app.innerHTML=renderCover();}else{app.innerHTML=renderWorkbookPage(PAGES[state.currentPage]);}attachEvents();}
 
-  return `
-    <div class="cover">
-      <div class="cover-border-outer"></div>
-      <div class="cover-border-inner"></div>
-      <div class="cover-brand fade-up fd1">M E S S Y &nbsp; L O V E &nbsp; C O U R T</div>
-      <div class="gold-line gold-line-lg"></div>
-      <h1 class="fade-up fd3">Self-Worth<br>on Trial<span class="tm">™</span></h1>
-      <div class="gold-line gold-line-sm"></div>
-      <p class="cover-subtitle fade-up fd5">The Clarity Upgrade Workbook</p>
-      <p class="cover-desc fade-up fd6">A guided decision system for people who are done<br>staying confused about what they already know.</p>
-      ${progressHTML}
-      <button class="btn-begin fade-up fd8" onclick="navigateTo(0)">${pct > 0 ? "CONTINUE" : "BEGIN"}</button>
-      <div class="cover-footer">MESSY LOVE COURT &nbsp;•&nbsp; COACH NEIK™</div>
-    </div>`;
-}
+function renderCover(){const{pct}=countFields();const progressHTML=pct>0?'<div class="progress-box fade-up fd7"><div class="progress-box-label">Your Progress</div><div class="progress-row"><div class="progress-track"><div class="progress-fill" style="width:'+pct+'%"></div></div><span class="progress-pct">'+pct+'%</span></div></div>':"";
 
-function renderWorkbookPage(page) {
-  const idx = state.currentPage;
-  const total = PAGES.length;
-  const pct = getProgress();
+return '<div class="cover"><div class="cover-border-outer"></div><div class="cover-border-inner"></div><div class="cover-brand fade-up fd1">M E S S Y &nbsp; L O V E &nbsp; C O U R T</div><div class="gold-line gold-line-lg"></div><h1 class="fade-up fd3">Self-Worth<br>on Trial<span class="tm">\u2122</span></h1><div class="gold-line gold-line-sm"></div><p class="cover-subtitle fade-up fd5">The Clarity Upgrade Workbook</p><p class="cover-desc fade-up fd6">A guided decision system for people who are done<br>staying confused about what they already know.</p>'+progressHTML+'<button class="btn-begin fade-up fd8" onclick="navigateTo(0)">'+(pct>0?"CONTINUE":"BEGIN")+'</button><div class="cover-footer">MESSY LOVE COURT &nbsp;\u2022&nbsp; COACH NEIK\u2122</div></div>';}
 
-  // Dots
-  let dotsHTML = "";
-  PAGES.forEach((p, i) => {
-    const filled = getPageFilled(p);
-    const isComplete = filled === p.questions.length;
-    const isActive = i === idx;
-    const hasContent = filled > 0;
-    const w = isComplete ? 20 : 8;
-    const bg = isActive ? "var(--gold)" : hasContent ? "rgba(200,169,106,0.4)" : "#333";
-    dotsHTML += `<button class="dot" style="width:${w}px;background:${bg}" onclick="navigateTo(${i})"></button>`;
-  });
+function renderWorkbookPage(page){const idx=state.currentPage;const total=PAGES.length;const{pct}=countFields();
 
-  // Questions
-  let questionsHTML = "";
-  page.questions.forEach((q, qi) => {
-    const key = page.id + "_" + q.id;
-    const val = state.answers[key] || "";
-    const filledClass = val.trim() ? " filled" : "";
-    const isLast = qi === page.questions.length - 1;
-    questionsHTML += `
-      <div class="question-block" ${isLast ? 'style="margin-bottom:0"' : ''}>
-        <label class="question-label">${q.label}</label>
-        <textarea
-          class="question-input${filledClass}"
-          data-key="${key}"
-          rows="${q.rows}"
-          placeholder="Type your answer here..."
-        >${val}</textarea>
-      </div>`;
-  });
+let dotsHTML="";PAGES.forEach((p,i)=>{const filled=getPageFilled(p);const pageTotal=getPageTotal(p);const isComplete=filled===pageTotal&&pageTotal>0;const isActive=i===idx;const hasContent=filled>0;const w=isComplete?20:8;const bg=isActive?"var(--gold)":hasContent?"rgba(200,169,106,0.4)":"#333";dotsHTML+='<button class="dot" style="width:'+w+'px;background:'+bg+'" onclick="navigateTo('+i+')"></button>';});
 
-  // Nav buttons
-  const nextBtn = idx < total - 1
-    ? `<button class="btn-next" onclick="navigateTo(${idx + 1})">NEXT →</button>`
-    : `<button class="btn-next" onclick="navigateTo(-1)">FINISH ✓</button>`;
+let contentHTML="";
 
-  const backTarget = idx > 0 ? idx - 1 : -1;
+if(page.isFinalVerdict){contentHTML=renderFinalVerdict();}else{
+page.questions.forEach(q=>{const key=page.id+"_"+q.id;const val=state.answers[key]||"";const fc=val.trim()?" filled":"";contentHTML+='<div class="question-block"><label class="question-label">'+q.label+'</label><textarea class="question-input'+fc+'" data-key="'+key+'" rows="'+q.rows+'" placeholder="Type your answer here...">'+escH(val)+'</textarea></div>';});
 
-  return `
-    <div class="workbook-page">
-      <div class="nav-bar">
-        <button class="nav-back" onclick="navigateTo(-1)">← COVER</button>
-        <div class="nav-info">
-          <span id="save-status" class="nav-save">${state.saveMsg}</span>
-          <span class="nav-count">${idx + 1} / ${total}</span>
-        </div>
-      </div>
+if(page.choose){const selectedVal=state.answers[page.id+"_"+page.choose.id];let optsHTML="";page.choose.options.forEach((opt,i)=>{const sel=selectedVal===i?" selected":"";optsHTML+='<div class="choose-option'+sel+'" onclick="selectChoice(\''+page.id+'\',\''+page.choose.id+'\','+i+')"><div class="choose-dot"><div class="choose-dot-inner"></div></div><span>'+opt+'</span></div>';});contentHTML+='<div class="choose-block"><label class="choose-label">'+page.choose.label+'</label><div class="choose-options">'+optsHTML+'</div></div>';}
 
-      <div class="dots">${dotsHTML}</div>
+if(page.realityCheck){const rcKey=page.id+"_rc";const rcVal=state.answers[rcKey]||"";const rcFilled=rcVal.trim()?" filled":"";contentHTML+='<div class="reality-block"><div class="reality-label">Reality Check</div><div class="reality-sub">'+page.realityCheck+'</div><textarea class="reality-input'+rcFilled+'" data-key="'+rcKey+'" rows="3" placeholder="The truth is...">'+escH(rcVal)+'</textarea></div>';}
 
-      <div class="panel">
-        <div class="panel-icon">${SCALE_SVG}</div>
-        <h2>${page.title}</h2>
-        <p class="panel-subtext">${page.subtext}</p>
-        ${questionsHTML}
-        <div class="court-divider"></div>
-        <div class="court-label">Court Order</div>
-        <p class="court-text">"${page.courtOrder}"</p>
-      </div>
+if(page.decision){const dKey=page.id+"_decision";const dVal=state.answers[dKey]||"";const dFilled=dVal.trim()?" filled":"";contentHTML+='<div class="decision-block"><div class="decision-label">My Decision</div><div class="decision-sub">Based on what you just wrote \u2014 what are you deciding right now?</div><textarea class="decision-input'+dFilled+'" data-key="'+dKey+'" rows="3" placeholder="I am deciding to...">'+escH(dVal)+'</textarea></div>';}}
 
-      <div class="bottom-nav">
-        <button class="btn-prev" onclick="navigateTo(${backTarget})">← BACK</button>
-        <button class="btn-reset" onclick="handleReset()">RESET</button>
-        ${nextBtn}
-      </div>
+const nextBtn=idx<total-1?'<button class="btn-next" onclick="navigateTo('+(idx+1)+')">NEXT \u2192</button>':'<button class="btn-next" onclick="navigateTo(-1)">FINISH \u2713</button>';
+const backTarget=idx>0?idx-1:-1;
 
-      <div class="bottom-progress">
-        <div class="bottom-progress-row">
-          <span class="bottom-progress-label">Overall Progress</span>
-          <span class="bottom-progress-pct">${pct}%</span>
-        </div>
-        <div class="bottom-progress-track">
-          <div class="bottom-progress-fill" style="width:${pct}%"></div>
-        </div>
-      </div>
-    </div>`;
-}
+return '<div class="workbook-page"><div class="nav-bar"><button class="nav-back" onclick="navigateTo(-1)">\u2190 COVER</button><div class="nav-info"><span id="save-status" class="nav-save">'+state.saveMsg+'</span><span class="nav-count">'+(idx+1)+' / '+total+'</span></div></div><div class="dots">'+dotsHTML+'</div><div class="panel"><div class="panel-icon">'+SCALE_SVG+'</div><h2>'+page.title+'</h2><p class="panel-subtext">'+page.subtext+'</p>'+contentHTML+'<div class="court-divider"></div><div class="court-label">Court Order</div><p class="court-text">\u201c'+page.courtOrder+'\u201d</p></div><div class="bottom-nav"><button class="btn-prev" onclick="navigateTo('+backTarget+')">\u2190 BACK</button><button class="btn-reset" onclick="handleReset()">RESET</button>'+nextBtn+'</div><div class="bottom-progress"><div class="bottom-progress-row"><span class="bottom-progress-label">Overall Progress</span><span class="bottom-progress-pct">'+pct+'%</span></div><div class="bottom-progress-track"><div class="bottom-progress-fill" style="width:'+pct+'%"></div></div></div></div>';}
 
-// ── EVENT BINDING ──
-let debounceTimer = null;
-function attachEvents() {
-  document.querySelectorAll(".question-input").forEach(textarea => {
-    textarea.addEventListener("input", function() {
-      const key = this.dataset.key;
-      state.answers[key] = this.value;
+function renderFinalVerdict(){let html="";
+FINAL_FILLS.forEach(f=>{const key="verdict_"+f.id;const val=state.answers[key]||"";const fc=val.trim()?" filled":"";
+if(f.mid){html+='<div class="fib-block"><div class="fib-label">'+f.before+' <span style="color:var(--gold)">______</span> '+f.mid+' <span style="color:var(--gold)">______</span></div><input type="text" class="fib-input'+fc+'" data-key="'+key+'" value="'+escH(val)+'" placeholder="Write your answer..."></div>';}else{html+='<div class="fib-block"><div class="fib-label">'+f.before+' <span style="color:var(--gold)">______</span></div><input type="text" class="fib-input'+fc+'" data-key="'+key+'" value="'+escH(val)+'" placeholder="Write your answer..."></div>';}});
 
-      if (this.value.trim()) {
-        this.classList.add("filled");
-      } else {
-        this.classList.remove("filled");
-      }
+const sigVal=state.answers["verdict_sig"]||"";
+html+='<div class="sig-block"><div class="sig-label">\u201cI stand on this decision.\u201d</div><input type="text" class="sig-input" data-key="verdict_sig" value="'+escH(sigVal)+'" placeholder="Sign your name"><div class="sig-date" style="margin-top:8px;font-size:11px;color:var(--muted);">'+new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})+'</div></div>';
+return html;}
 
-      // Debounced save
-      if (debounceTimer) clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        saveState();
-        // Update progress without full re-render
-        const pct = getProgress();
-        const pctEls = document.querySelectorAll(".bottom-progress-pct");
-        const fillEls = document.querySelectorAll(".bottom-progress-fill");
-        pctEls.forEach(el => el.textContent = pct + "%");
-        fillEls.forEach(el => el.style.width = pct + "%");
+function escH(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 
-        // Update dots
-        PAGES.forEach((p, i) => {
-          const filled = getPageFilled(p);
-          const isComplete = filled === p.questions.length;
-          const dot = document.querySelectorAll(".dot")[i];
-          if (dot) {
-            dot.style.width = isComplete ? "20px" : "8px";
-            if (i === state.currentPage) {
-              dot.style.background = "var(--gold)";
-            } else if (filled > 0) {
-              dot.style.background = "rgba(200,169,106,0.4)";
-            } else {
-              dot.style.background = "#333";
-            }
-          }
-        });
-      }, 400);
-    });
-  });
-}
+let debounceTimer=null;
+function attachEvents(){document.querySelectorAll('.question-input,.reality-input,.decision-input,.fib-input,.sig-input').forEach(el=>{el.addEventListener("input",function(){const key=this.dataset.key;if(!key)return;state.answers[key]=this.value;if(this.value.trim()){this.classList.add("filled");}else{this.classList.remove("filled");}if(debounceTimer)clearTimeout(debounceTimer);debounceTimer=setTimeout(()=>{saveState();const{pct}=countFields();document.querySelectorAll(".bottom-progress-pct").forEach(el=>el.textContent=pct+"%");document.querySelectorAll(".bottom-progress-fill").forEach(el=>el.style.width=pct+"%");},400);});});}
 
-// ── INIT ──
-loadState();
-render();
+loadState();render();
 </script>
 </body>
 </html>
